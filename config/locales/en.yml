@@ -2,6 +2,7 @@ en:
   devise:
     submit_token: "Check Token"
     submit_token_title: "Please enter your Google Authenticator token:"
+    try_submit_token_title: "Check your setup by entering your Google Authenticator token:"
     registration:
       title: "Your QR Code:"
       nice_request: "Would you like to enable Google Authenticator?"

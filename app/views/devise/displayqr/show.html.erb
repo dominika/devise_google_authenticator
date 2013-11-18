@@ -7,6 +7,8 @@
 	<h3><%= I18n.t('nice_request', {:scope => 'devise.registration'}) %></h3>
 	<p><%= f.label :gauth_enabled, I18n.t('qrstatus', {:scope => 'devise.registration'}) %><br />
 	<%= f.check_box :gauth_enabled %></p>
+  <h3><%= I18n.t('try_submit_token_title', {:scope => 'devise'}) %></h2>
+	<%= f.text_field :token, :autocomplete => :off%>
 	
 	<p><%= f.submit I18n.t('submit', {:scope => 'devise.registration'}) %></p>
 <% end %>
