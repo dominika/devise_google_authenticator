@@ -25,7 +25,7 @@ class Devise::DisplayqrController < DeviseController
       sign_in scope, resource, :bypass => true
       redirect_to stored_location_for(scope) || :root
     else
-      msg = wants_gauth and not can_update ? "Token was incorrect" : "Status update failed"
+      msg = (wants_gauth and not can_update) ? "Token was incorrect" : "Status update failed"
       set_flash_message :error, msg
       render :show
     end
