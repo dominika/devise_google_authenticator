@@ -13,7 +13,7 @@ class Devise::DisplayqrController < DeviseController
   end
 
   def update
-    wants_gauth = params[resource_name].to_i > 0
+    wants_gauth = params[resource_name]['gauth_enabled'].to_i > 0
     can_update = if wants_gauth
       resource.assign_tmp
       resource.validate_token(params['token'].to_i)
