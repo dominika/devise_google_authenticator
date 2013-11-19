@@ -13,13 +13,20 @@ class Devise::DisplayqrController < DeviseController
   end
 
   def update
-    resource.assign_tmp
-    if resource.validate_token(params['token'].to_i) and resource.set_gauth_enabled(params[resource_name])
+    wants_gauth = params[resource_name].to_i > 0
+    can_update = if wants_gauth
+      resource.assign_tmp
+      resource.validate_token(params['token'].to_i)
+    else
+      true
+    end
+    if can_update and resource.set_gauth_enabled(params[resource_name])
       set_flash_message :notice, "Status Updated!"
       sign_in scope, resource, :bypass => true
       redirect_to stored_location_for(scope) || :root
     else
-      set_flash_message :error, "Token was incorrect"
+      msg = wants_gauth and not can_update ? "Token was incorrect" : "Status update failed"
+      set_flash_message :error, msg
       render :show
     end
   end
