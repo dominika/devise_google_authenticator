@@ -8,6 +8,11 @@ en:
       nice_request: "Would you like to enable Google Authenticator?"
       qrstatus: "Google Authenticator Status:"
       submit: "Continue..."
+    displayqr:
+      user:
+        "Status Updated!": "Google Authenticator Status updated successfully"
+        "Status update failed": "Google Authenticator Status update failed"
+        "Token was incorrect": "Token was incorrect. Please try again setting up your device with this QR code."
     checkga:
       user:
         signed_in: "Signed in successfully from token."
