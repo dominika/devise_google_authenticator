@@ -18,9 +18,10 @@ module Devise # :nodoc:
         def get_qr
           self.gauth_secret
         end
-        
+
         def set_gauth_enabled(param)
-          self.update_without_password(param)
+          enabled = param['gauth_enabled'] or 'f'
+          self.update_attribute :gauth_enabled, enabled
         end
 
         def assign_tmp
